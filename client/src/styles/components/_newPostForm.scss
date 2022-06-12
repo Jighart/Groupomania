@@ -1,0 +1,116 @@
+.post-container {
+    margin-top: 10px;
+    padding: 16px 40px;
+    border-radius: 20px;
+    position: relative;
+    background: $color-4;
+
+    i {
+        font-size: 1.5rem;
+        margin: 20px 0;
+        color: $color-3;
+    }
+
+    .data {
+        position: absolute;
+        right: 42px;
+        text-align: right;
+
+        @media screen and(max-width: 420px) {
+            right: 10px;
+        }
+        @media screen and(max-width: 380px) {
+            display: none;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .post-form {
+        position: relative;
+        margin: 0 auto 0;
+
+        textarea {
+            height: 120px;
+            width: 100%;
+            font-size: 1.4rem;
+            padding: 12px 15px;
+            border-radius: 20px 20px 6px 20px;
+        }
+
+        .footer-form {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 100%;
+
+            .icon {
+                position: relative;
+                width: 30px;
+                height: 20px;
+                transform: translate(-20px, 5px);
+
+                img {
+                    position: absolute;
+                    height: 24px;
+                    width: 24px;
+                    cursor: pointer;
+                }
+
+                span {
+                    position: absolute;
+                    left: 50px;
+                }
+
+                button {
+                    width: 190px;
+                    padding: 10px 20px;
+                    background: $white;
+                    transition: 0.2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $color-3;
+                    }
+                }
+
+                input {
+                    width: 25px;
+                    height: 25px;
+                    position: absolute;
+                    opacity: 0;
+
+                    &::-webkit-file-upload-button {
+                        cursor: pointer;
+                    }
+                }
+            }
+            p {
+                font-family: $font-3;
+                font-weight: bold;
+                margin-top: 6px;
+                color: red;
+            }
+            .btn-send {
+                .cancel {
+                    border-radius: 20px;
+                    margin-right: 8px;
+                    background: $white;
+
+                    &:hover {
+                        color: $color-4;
+                        background: $color-3;
+                    }
+                }
+                button {
+                    @media screen and(max-width: 460px) {
+                        font-size: 0.8rem;
+                        padding: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
