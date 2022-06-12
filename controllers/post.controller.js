@@ -23,7 +23,9 @@ module.exports.createPost = async (req, res) => {
         'image/png': 'png',
     }
 
-    const extension = MIME_TYPES[req.file.detectedMimeType]
+    const extension = () => {
+        if (req.file.mimeType) return req.file.mimeType
+    }
 
     if (req.file !== null) {
         try {
@@ -39,7 +41,7 @@ module.exports.createPost = async (req, res) => {
             const errors = uploadErrors(err)
             return res.status(201).json({ errors })
         }
-        fileName = req.body.posterId + Date.now() + '.' + extension
+        fileName = req.body.posterId + Date.now() + '.' + req.file.mimeType
 
         await pipeline(req.file.stream, fs.createWriteStream(`${__dirname}/../client/public/uploads/posts/${fileName}`))
     }

@@ -55,6 +55,9 @@ const Card = ({ post }) => {
                         </div>
                     )}
                     {post.picture && <img src={post.picture} alt="card-pic" className="card-pic" />}
+                    {post.updatedAt !== post.createdAt ? (
+                        <p className="updated-date">Modifié le {dayjs(post.updatedAt).format('DD/MM/YYYY HH:mm')}</p>
+                    ) : null}
                     {(userData._id === post.posterId || userData._id === process.env.REACT_APP_ADMIN_ID) && (
                         <div className="button-container">
                             <div onClick={() => setIsUpdated(!isUpdated)}>

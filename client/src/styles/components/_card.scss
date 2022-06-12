@@ -102,6 +102,11 @@
             }
         }
     }
+    .updated-date {
+        color: $color-3;
+        font-size: 0.75rem;
+        font-style: italic;
+    }
     .card-footer {
         display: flex;
         align-items: center;
